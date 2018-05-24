@@ -7,6 +7,10 @@
   "engines": {
     "node": ">=6"
   },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/stonebat/create-react-app/issues"
   },
