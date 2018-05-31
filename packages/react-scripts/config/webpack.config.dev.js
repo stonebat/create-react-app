@@ -284,6 +284,13 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'APRICOT': 'Apricot',
+      'CBCORE': 'CBCore',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery'
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
@@ -302,7 +309,7 @@ module.exports = {
   },
   externals: {
     Apricot: 'window.cb.apricot',
-    // CBCore: 'window.cb.core',
+    CBCore: 'window.cb.core',
     jquery: 'jQuery'
   }
 };
