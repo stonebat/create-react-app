@@ -112,6 +112,8 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+
+
     ],
   },
   module: {
@@ -248,6 +250,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      apricot: {
+        css: '//mango.collegeboard.org/apricot/prod/3.1.0/css/apricot.min.css',
+        js: '//mango.collegeboard.org/apricot/prod/3.1.0/js/apricot.js'
+      },
+      mango: {
+        css: '//mango.collegeboard.org/cbmango1/prod/sattk/all/2/all.css',
+        js: '//mango.collegeboard.org/cbmango1/prod/sattk/all/2/all.js'
+      },
+      analytics: {
+        js: '//assets.adobedtm.com/7a8a98de0363fbed05b98da851d6b23866ffa7cc/satelliteLib-0397ae4916dd85521cee60125d909021a2f2d335.js'
+      }
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
@@ -287,4 +300,9 @@ module.exports = {
   performance: {
     hints: false,
   },
+  externals: {
+    Apricot: 'window.cb.apricot',
+    // CBCore: 'window.cb.core',
+    jquery: 'jQuery'
+  }
 };
