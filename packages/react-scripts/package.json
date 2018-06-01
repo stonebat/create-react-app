@@ -1,6 +1,6 @@
 {
   "name": "@stonebat/react-scripts",
-  "version": "1.1.4b",
+  "version": "1.1.4c",
   "description": "Configuration and scripts for Create React App.",
   "repository": "stonebat/create-react-app",
   "license": "MIT",
