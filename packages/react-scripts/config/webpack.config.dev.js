@@ -251,8 +251,8 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
       apricot: {
-        css: '//mango.collegeboard.org/apricot/prod/3.1.0/css/apricot.min.css',
-        js: '//mango.collegeboard.org/apricot/prod/3.1.0/js/apricot.js'
+        css: '//mango.collegeboard.org/apricot/prod/3.2.0/css/apricot.min.css',
+        js: '//mango.collegeboard.org/apricot/prod/3.2.0/js/apricot.js'
       },
       mango: {
         css: '//mango.collegeboard.org/cbmango1/prod/sattk/all/2/all.css',
