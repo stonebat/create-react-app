@@ -170,7 +170,10 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [
+              paths.appSrc,
+              paths.appNodeModules + '/indicative/'
+            ],
             loader: require.resolve('babel-loader'),
             options: {
               // @remove-on-eject-begin
@@ -283,6 +286,17 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
+      apricot: {
+        css: '//mango.collegeboard.org/apricot/prod/3.2.0/css/apricot.min.css',
+        js: '//mango.collegeboard.org/apricot/prod/3.2.0/js/apricot.js'
+      },
+      mango: {
+        css: '//mango.collegeboard.org/cbmango1/prod/sattk/all/2/all.css',
+        js: '//mango.collegeboard.org/cbmango1/prod/sattk/all/2/all.js'
+      },
+      analytics: {
+        js: '//assets.adobedtm.com/7a8a98de0363fbed05b98da851d6b23866ffa7cc/satelliteLib-0397ae4916dd85521cee60125d909021a2f2d335.js'
+      },
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
@@ -356,6 +370,13 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'APRICOT': 'Apricot',
+      'CBCORE': 'CBCore',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery'
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
@@ -366,4 +387,9 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
+  externals: {
+    Apricot: 'window.cb.apricot',
+    CBCore: 'window.cb.core',
+    jquery: 'jQuery'
+  }
 };
