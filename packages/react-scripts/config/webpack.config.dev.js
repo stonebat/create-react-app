@@ -257,9 +257,6 @@ module.exports = {
       mango: {
         css: '//mango.collegeboard.org/cbmango1/prod/sattk/all/4/all.css',
         js: '//mango.collegeboard.org/cbmango1/prod/sattk/all/4/all.js'
-      },
-      analytics: {
-        js: '//assets.adobedtm.com/7a8a98de0363fbed05b98da851d6b23866ffa7cc/satelliteLib-0397ae4916dd85521cee60125d909021a2f2d335.js'
       }
     }),
     // Add module names to factory functions so they appear in browser profiler.
