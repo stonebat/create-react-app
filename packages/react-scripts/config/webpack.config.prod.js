@@ -307,7 +307,9 @@ module.exports = {
             test: /\.(js|mjs|jsx|ts|tsx)$/,
             include: [
               paths.appSrc,
-              paths.appNodeModules + '/indicative/'
+              paths.appNodeModules + '/indicative/',
+              paths.appNodeModules + '/graphql/',
+              paths.appNodeModules + '/mobx/',
             ],
             loader: require.resolve('babel-loader'),
             options: {

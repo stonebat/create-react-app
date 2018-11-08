@@ -236,6 +236,7 @@ module.exports = {
               paths.appSrc,
               paths.appNodeModules + '/indicative/',
               paths.appNodeModules + '/graphql/',
+              paths.appNodeModules + '/mobx/',
             ],
             loader: require.resolve('babel-loader'),
             options: {
